@@ -22,7 +22,7 @@ const LoginPage: NextPage = () => {
     
   >
     <div className=" h-4/6 w-1/3 top-1/2">
-    <div className="text-center pt-4">
+    <div className="text-center pt-10 pb-8">
     <label
         className="block mb-2 text-gray-700 text-4xl"
       >
@@ -43,7 +43,7 @@ const LoginPage: NextPage = () => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Email"
-        className="w-full border border-gray-400 p-2"
+        className="w-full border border-gray-400 p-2 rounded-lg shadow-md"
       />
     </div>
     <div className="mb-4">
@@ -58,7 +58,7 @@ const LoginPage: NextPage = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
-        className="w-full border border-gray-400 p-2"
+        className="w-full border border-gray-400 p-2 rounded-lg shadow-md"
       />
     </div>
     <button
@@ -70,9 +70,9 @@ const LoginPage: NextPage = () => {
     <label
         className="block font-medium mb-2 text-gray-700 pt-4 text-center"
       >
-        OR
+        ------------------- OR -------------------
       </label>
-      <div className="text-center mt-10 font-bold">
+      <div className="text-center mt-10 hover:font-extrabold">
       <Link href="/login">
      Create an account
     </Link>
