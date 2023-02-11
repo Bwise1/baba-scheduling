@@ -21,7 +21,7 @@ const LoginPage: NextPage = () => {
     onSubmit={handleSubmit}
     
   >
-    <div className=" h-4/6 w-1/3 top-1/2">
+    <div className=" h-4/6 w-1/3 top-1/2 m-auto">
     <div className="text-center pt-10 pb-8">
     <label
         className="block mb-2 text-gray-700 text-4xl"
@@ -65,8 +65,13 @@ const LoginPage: NextPage = () => {
       type="submit"
       className="bg-indigo-500 text-white py-2 px-4 hover:bg-indigo-800 rounded-xl w-full self-center"
     >
-      Submit
+      Sign in
     </button>
+    <div className="border border-gray-800 p-2 rounded-lg text-center mt-4 hover:bg-neutral-300">
+     <Link href="">
+      Sign in with Google
+     </Link>
+    </div>
     <label
         className="block font-medium mb-2 text-gray-700 pt-4 text-center"
       >
