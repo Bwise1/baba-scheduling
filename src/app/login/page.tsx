@@ -1,13 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import { NextPage } from "next";
 import styles from "./page.module.css";
 import { Inter } from "@next/font/google";
 import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const LoginPage: NextPage = () => {
+const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
