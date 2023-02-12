@@ -1,0 +1,10 @@
+node_modules/
+.eslintcache
+config.env
+.DS_Store
+logs/
+.env
+yarn-error.log*
+.vscode
+settings.json
+.idea/
