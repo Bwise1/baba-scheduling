@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import styles from "./page.module.css";
 import { Inter } from "@next/font/google";
-import calendar from "../images/calendar.JPG";
 import Image from "next/image";
+import calendar from "../images/calendar.jpg";
 
 const inter = Inter({ subsets: ["latin"] });
 
