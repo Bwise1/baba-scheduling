@@ -10,17 +10,21 @@ import google from "../images/google.png";
 import Labelerror from "../components/labelerror";
 import { useRef } from 'react';
 import { Console } from "console";
+import eyes from "../images/eyes.png";
+import noeyes from "../images/noeyes.png";
 
 
 const inter = Inter({ subsets: ["latin"] });
 
 interface FormState {
   password:string;
+  passwordSec:string;
   email:string;
   username:string,
  
   errors:{
     password?:string;
+    passwordSec?:string;
   email?:string;
   username?:string,
   
@@ -29,9 +33,11 @@ interface FormState {
 
 
 const SignupPage = () =>{
-let validation=0;
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordone, setShowPasswordone] = useState(false);
   const [formState, setFormState] = useState<FormState>({
     password: "",
+    passwordSec:"",
     email: "",
     username: "",
     errors:{},
@@ -59,15 +65,17 @@ let validation=0;
     const containsNonAlphabetic = /[^a-zA-Z]/.test(value);
     switch (name) {
       case "username":
+        formState.username=value;
         if (!value) {
           formState.errors.username = "Please enter a username.";
-         
+          
         }
         else {formState.errors.username="";
         
         }
         break;
       case "email":
+        formState.email=value;
         if (!value) {
           formState.errors.email = "Please enter your email.";
           
@@ -85,8 +93,9 @@ let validation=0;
         }
         break;
       case "password":
+        formState.password=value;
         if (!value) {
-          formState.errors.password = "Please your password !";
+          formState.errors.password = "Please enter a password !";
         }
         else if(value.length<7){
           formState.errors.password="Please enter a password with at least 7 characters"
@@ -102,7 +111,14 @@ let validation=0;
           
 
         }
-      
+        break;
+        case "passwordSec":
+          if(value!==formState.password){
+            formState.errors.passwordSec="passwords do not match !"
+          }
+          else
+          formState.errors.passwordSec=""
+
         break;
       default:
         break;
@@ -111,16 +127,30 @@ let validation=0;
     return errors;
   }
   
- 
+  function validateForm(formState: FormState) {
+    const errors = {
+      username: validateInput("name", formState.username),
+      email: validateInput("email", formState.email),
+      password: validateInput("password", formState.password),
+      passwordSe: validateInput("password", formState.passwordSec),
+    };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-     e.preventDefault();
-   console.log(validation);
-    if(validation!=0){
-      //proceed to next step
-      console.log("well done !")
-    }
+    return errors;
+  }
+
+  function handleSubmit (event: React.FormEvent<HTMLFormElement>) {
+     event.preventDefault();
+     const errors = validateForm(formState);
+     
+     if ((formState.errors.email =='') && (formState.errors.password =='') 
+     && (formState.errors.username =='') && (formState.errors.passwordSec=='')) {
+       // Submit the form
+       console.log(formState);
+       console.log("well done !");
+     } else {
+    
   };
+}
 
   return(
     <form onSubmit={handleSubmit} className="flex bg-gray-200 h-full">
@@ -129,7 +159,7 @@ let validation=0;
           <div className="bg-gray-400 rounded-lg p-6">
     <div className="text-center pt-10 pb-8">
     <label
-        className="block mb-2 text-gray-700 text-4xl"
+        className="block text-gray-700 text-4xl"
       >
         Signup to <strong className="font-sans">BABA </strong>scheduling for free
       </label> 
@@ -163,18 +193,60 @@ let validation=0;
         <span className="error">{formState.errors.email}</span>
       )}
       </div>
+      <div className="flex">
       <input
         id="password"
-        type="password"
+        type={showPasswordone ? 'text' : 'password'}
         name="password"
         value={formState.password}
         onChange={handleChange}
         placeholder="Password"
-        className="w-full border border-gray-400 p-2 rounded-lg shadow-md mt-4"
+        className="w-full  p-2 rounded-l-lg shadow-md mt-4"
       />
+      <button className="bg-gray-500 mt-4 rounded-r-lg w-14"onClick={() => setShowPasswordone(!showPasswordone)}>
+          {showPasswordone ? <Image
+      src={noeyes}
+      alt="Google Logo"
+      className="w-7 h-7 ml-3 opacity-60"
+    />: <Image
+      src={eyes}
+      alt="Google Logo"
+      className="w-7 h-7 ml-3 opacity-60"
+    />}
+     
+      </button>
+      </div>
       <div id="passwordSeterror" className="text-red-500">
       {formState.errors.password && (
         <span className="error">{formState.errors.password}</span>
+      )}
+      </div>
+      <div className="flex">
+      <input
+        id="password"
+        type={showPassword ? 'text' : 'password'}
+        name="passwordSec"
+        value={formState.passwordSec}
+        onChange={handleChange}
+        placeholder="Confirm Password"
+        className="w-full p-2 rounded-l-lg shadow-md mt-4"
+      />
+      <button className="bg-gray-500 mt-4 rounded-r-lg w-14"type="button" onClick={() => setShowPassword(!showPassword)}>
+          {showPassword ? <Image
+      src={noeyes}
+      alt="Google Logo"
+      className="w-7 h-7 ml-3 opacity-60"
+    />: <Image
+      src={eyes}
+      alt="Google Logo"
+      className="w-7 h-7 ml-3 opacity-60"
+    />}
+      
+      </button>
+      </div>
+      <div id="passwordSeterror" className="text-red-500">
+      {formState.errors.passwordSec && (
+        <span className="error">{formState.errors.passwordSec}</span>
       )}
       </div>
       <button
