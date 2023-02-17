@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styles from "./page.module.css";
 import { Inter } from "@next/font/google";
 import Image from "next/image";
-import calendar from "../images/calendar.jpg";
+import calendar from "../images/calendar.png";
 
 const inter = Inter({ subsets: ["latin"] });
 
