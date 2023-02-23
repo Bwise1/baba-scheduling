@@ -236,7 +236,6 @@ const SignupPage = () => {
                             />
                             <button
                                 className="bg-gray-500 mt-4 rounded-r-lg w-14"
-                                type="button"
                                 onClick={() => setShowPassword(!showPassword)}
                             >
                                 {showPassword ? (
