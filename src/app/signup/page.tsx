@@ -197,6 +197,7 @@ const SignupPage = () => {
                                 className="w-full  p-2 rounded-l-lg shadow-md mt-4"
                             />
                             <button
+                                type="button"
                                 className="bg-gray-500 mt-4 rounded-r-lg w-14"
                                 onClick={() =>
                                     setShowPasswordone(!showPasswordone)
@@ -235,6 +236,7 @@ const SignupPage = () => {
                                 className="w-full p-2 rounded-l-lg shadow-md mt-4"
                             />
                             <button
+                                type="button"
                                 className="bg-gray-500 mt-4 rounded-r-lg w-14"
                                 onClick={() => setShowPassword(!showPassword)}
                             >
