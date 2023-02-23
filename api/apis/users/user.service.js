@@ -1,4 +1,4 @@
-const db=("../../config/db")
+const pool=("../../config/db")
 
 
 
@@ -11,8 +11,8 @@ const User=function(user){
     this.password=user.password
     this.number=user.number
 }
-User.create=(newUser,callback)=>{
-    db.query("INSERT INTO registration SET ?",newUser,(err,res)=>{
+User.create= (newUser,callback)=>{
+   pool.query("INSERT INTO registration SET ?",newUser,(err,res)=>{
         if(err){
             console.log("error: ",err)
             return callback(err,null)
