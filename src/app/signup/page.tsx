@@ -161,7 +161,7 @@ const SignupPage = () => {
                             value={formState.username}
                             onChange={handleChange}
                             placeholder="Username"
-                            className="w-full border border-gray-400 p-2 rounded-lg shadow-md"
+                            className="w-full border border-gray-400 p-2 rounded-lg shadow-md hover:border-black"
                         />
                         <div id="usernameSeterror" className="text-red-500">
                             {formState.errors.username && (
@@ -177,7 +177,7 @@ const SignupPage = () => {
                             value={formState.email}
                             onChange={handleChange}
                             placeholder="Email"
-                            className="w-full border border-gray-400 p-2 rounded-lg shadow-md mt-4"
+                            className="w-full border border-gray-400 p-2 rounded-lg shadow-md mt-4 hover:border-black"
                         />
                         <div id="emailSeterror" className="text-red-500">
                             {formState.errors.email && (
@@ -194,7 +194,7 @@ const SignupPage = () => {
                                 value={formState.password}
                                 onChange={handleChange}
                                 placeholder="Password"
-                                className="w-full  p-2 rounded-l-lg shadow-md mt-4"
+                                className="w-full  p-2 rounded-l-lg shadow-md mt-4 border hover:border-black"
                             />
                             <button
                                 type="button"
@@ -233,7 +233,7 @@ const SignupPage = () => {
                                 value={formState.passwordSec}
                                 onChange={handleChange}
                                 placeholder="Confirm Password"
-                                className="w-full p-2 rounded-l-lg shadow-md mt-4"
+                                className="w-full p-2 rounded-l-lg shadow-md mt-4 border hover:border-black"
                             />
                             <button
                                 type="button"
