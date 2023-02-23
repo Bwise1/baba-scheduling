@@ -1,6 +1,6 @@
-const {createUser}=require("./user.controller")
+const users=require("./user.controller")
 const router=require("express").Router()
 
-router.post("/apis",createUser)
+router.post("/",users.create)
 
 module.exports = router
