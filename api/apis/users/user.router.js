@@ -1,6 +1,7 @@
-const users=require("./user.controller")
-const router=require("express").Router()
+import createUser  from "./user.controller.js"
+import express from 'express'
+const router=express.Router()
 
-router.post("/",users.create)
+router.post("/",createUser)
 
-module.exports = router
+export default router

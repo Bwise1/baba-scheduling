@@ -1,19 +1,22 @@
-/*require("dotenv").config()
-const express = require("express")
+import dotenv from "dotenv"
+import express from "express";
+import pkg from 'body-parser';
+
 const app = express();
-const userRouter=require('./apis/users/user.router')
+import userRouter from './apis/users/user.router.js';
 
-
+dotenv.config()
 const PORT=4000
-app.use(express.json())
 
+app.use(pkg.json())
+app.use(pkg.urlencoded({extended:true}))
 app.use('/apis/users',userRouter)
 
 app.listen(process.env.PORT,()=>{
     console.log("Server Up and Working:", process.env.PORT)
-})*/
+})
 
-import express from "express";
+/*import express from "express";
 import { createConnection } from "mysql";
 import bodyParser from "body-parser";
 
@@ -44,9 +47,9 @@ app.get("/registration", (req, res) => {
 });
 
 app.post("/reg", (req, res) => {
-  const { firstname, lastname, gender, email, password, number } = req.body;
+  const { first_name, last_name, gender, email, password, number } = req.body;
   console.log(req.body);
-  const query = `INSERT INTO registration(firstName,lastName, gender, email,password,number) VALUES('${firstname}','${lastname}','${gender}','${email}','${password}','${number}'); `;
+  const query = `INSERT INTO registration(firstName,lastName, gender, email,password,number) VALUES('${first_name}','${last_name}','${gender}','${email}','${password}','${number}'); `;
   db.query(query, (err, data) => {
     if (err) {
       console.log(err);
@@ -58,4 +61,4 @@ app.post("/reg", (req, res) => {
 });
 app.listen(8000, () => {
   console.log("connected to backend");
-});
+});*/

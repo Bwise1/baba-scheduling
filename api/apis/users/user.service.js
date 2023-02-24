@@ -1,52 +1,19 @@
-const pool=("../../config/db")
+import db from '../../config/db.js'
 
-
-
-const User=function(user){
-
-    this.first_name=user.first_name
-    this.last_name=user.last_name
-    this.gender=user.gender
-    this.email=user.email
-    this.password=user.password
-    this.number=user.number
-}
-User.create= (newUser,callback)=>{
-   pool.query("INSERT INTO registration SET ?",newUser,(err,res)=>{
-        if(err){
-            console.log("error: ",err)
-            return callback(err,null)
-            
+export default function create(data, callback) {
+    const { first_name, last_name, gender, email, password, number } = data;
+    const query = `INSERT INTO registration(firstName,lastName, gender, email,password,number) VALUES('${first_name}','${last_name}','${gender}','${email}','${password}','${number}'); `;
+    db.query(query, (error, results) => {
+        if (error) {
+            return callback(error);
         }
-        console.log("created User: ",{...newUser})
-       return callback(null,{ ...newUser})
-    })
+        return callback(null, results);
+    }
+    );
 }
 
 
-module.exports= User
 
-/*module.exports= {
-    create:(data,callback)=>{
-        pool.query(
-           `insert into registration (firstName,lastName,gender,email,password,number) values (?,?,?,?,?,?) ` ,
-           [
-            data.firstName,
-            data.last_name,
-            data.gender,
-            data.email,
-            data.password,
-            data.number
-           ],
-           (error,results,fields)=>{
-            if(error){
-                return callback(error)
-            }
-            return callback(null,results)
-           }
-        )
-    }
-}*/
- 
+
 
 
