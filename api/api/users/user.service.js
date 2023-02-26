@@ -46,9 +46,9 @@ export function updateUser(data,callback){
     })
 }
 
-export function deleteUser(data,callback){
+export function deleteUser(id,callback){
     
-    query=`DELETE from registration WHERE id=${data.id}`
+   const query=`delete from registration where id=${id}`
     db.query(query,(error,results)=>{
         if(error){
             return callback(error)

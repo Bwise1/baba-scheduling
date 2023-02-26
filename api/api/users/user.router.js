@@ -6,6 +6,6 @@ router.post("/",createUser)
 router.get("/",getAllUsers)
 router.get("/:id",getUserByUserId)
 router.patch("/",updateUserById)
-router.delete("/",deleteUserById)
+router.delete("/:id",deleteUserById)
 
 export default router

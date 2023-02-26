@@ -81,21 +81,25 @@ export function updateUserById(req,res){
     
 }
 export function deleteUserById(req,res){
-    const data=req.body
-    deleteUser(data,(err,results)=>{
+    const id=req.params.id
+    deleteUser(id,(err,results)=>{
         if(err){
             console.log(err)
             return
         }
-        if(!results){
+        if(results){
             return res.json({
                 success:0,
                 message:"Record not found"
             })
         }
-        return res.json({
-            success:1,
-            message:`User with Id:${data.id} deleted successfully `
-        })
+        if(!results){
+            return res.json({
+                success:1,
+                message:`User with Id:${id} deleted successfully `
+            })
+        }
+       
+        
     })
 }
