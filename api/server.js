@@ -3,14 +3,14 @@ import express from "express";
 import pkg from 'body-parser';
 
 const app = express();
-import userRouter from './apis/users/user.router.js';
+import userRouter from './api/users/user.router.js';
 
 dotenv.config()
 const PORT=4000
 
 app.use(pkg.json())
 app.use(pkg.urlencoded({extended:true}))
-app.use('/apis/users',userRouter)
+app.use('/api/users',userRouter)
 
 app.listen(process.env.PORT,()=>{
     console.log("Server Up and Working:", process.env.PORT)
