@@ -1,11 +1,19 @@
-import {createUser,getAllUsers,getUserByUserId,updateUserById,deleteUserById}  from "./user.controller.js"
-import express from 'express'
-const router=express.Router()
+import {
+  createUser,
+  getAllUsers,
+  getUserByUserId,
+  updateUserById,
+  deleteUserById,
+  login,
+} from "./user.controller.js";
+import express from "express";
+import { checkToken } from "../../auth/token_validation.js";
+const router = express.Router();
 
-router.post("/",createUser)
-router.get("/",getAllUsers)
-router.get("/:id",getUserByUserId)
-router.patch("/",updateUserById)
-router.delete("/:id",deleteUserById)
-
-export default router
+router.post("/", checkToken, createUser);
+router.get("/", checkToken, getAllUsers);
+router.get("/:id", checkToken, getUserByUserId);
+router.patch("/:id", checkToken, updateUserById);
+router.delete("/:id", checkToken, deleteUserById);
+router.post("/login", login);
+export default router;
