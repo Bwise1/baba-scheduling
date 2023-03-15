@@ -5,7 +5,7 @@ import { Inter } from '@next/font/google';
 import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] });
-var error=""
+var error = '';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -13,12 +13,9 @@ const LoginPage = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if(!email && !password){
-            error="please fill the fields"
-        }
-        else
-        error=""
-        
+        if (!email && !password) {
+            error = 'please fill the fields';
+        } else error = '';
     };
 
     return (
@@ -34,12 +31,8 @@ const LoginPage = () => {
                         Login
                     </h1>
                     <div id="usernameSeterror" className="text-red-500">
-                            {error && (
-                                <span className="error">
-                                    {error}
-                                </span>
-                            )}
-                        </div>
+                        {error && <span className="error">{error}</span>}
+                    </div>
                     <div className="mb-4">
                         <label className="block font-medium mb-2 text-gray-700">
                             Email

@@ -142,7 +142,10 @@ const SignupPage = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="flex bg-[url('/src/app/images/back.jpg')]">
+        <form
+            onSubmit={handleSubmit}
+            className="flex bg-[url('/src/app/images/back.jpg')]"
+        >
             <div className="text-left">
                 <div className=" h-4/6 m-auto p-6 flex-auto w-3/4 ml-24">
                     <div className="bg-gray-400 rounded-lg p-6">
