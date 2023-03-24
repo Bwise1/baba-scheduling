@@ -21,7 +21,7 @@ const LoginPage = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <div className=" h-4/6 w-1/3 top-1/2 m-auto">
+            <div className=" h-1/2 w-1/3 top-1/2 m-auto pt-10">
                 <div className="text-center pt-10 pb-8">
                     <label className="block mb-2 text-gray-700 text-4xl">
                         <strong className="font-sans">BABA </strong>scheduling

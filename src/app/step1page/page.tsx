@@ -37,9 +37,9 @@ const Step1page = () => {
         event.preventDefault();
     }
     return (
-        <form onSubmit={handleSubmit} className="">
-            <div className="text-left w-1/2 p-8">
-                <div className=" h-4/6 m-auto flex-auto ml-24">
+        <form onSubmit={handleSubmit} className='flex'>
+            <div className="text-left mr-5 pt-7 pb-4">
+                <div className=" h-1/2 m-auto flex-auto w-3/4 ml-24">
                     <div className="bg-gray-200 rounded-lg p-6">
                         <div className="pt-10 pb-8">
                             <label className="block mb-2 text-gray-700 text-3xl text-center">
@@ -141,7 +141,9 @@ const Step1page = () => {
                     </div>
                 </div>
             </div>
-            <Lefticon />
+            
+                <Lefticon />
+            
         </form>
     );
 };
