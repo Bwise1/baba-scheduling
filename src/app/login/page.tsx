@@ -5,19 +5,23 @@ import { Inter } from '@next/font/google';
 import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] });
+var error = '';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const isFormValid = email && password;
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        console.log(`Email: ${email} Password: ${password}`);
+        if (!email && !password) {
+            error = 'please fill the fields';
+        } else error = '';
     };
 
     return (
         <form onSubmit={handleSubmit}>
-            <div className=" h-4/6 w-1/3 top-1/2 m-auto">
+            <div className=" h-1/2 w-1/3 top-1/2 m-auto pt-10">
                 <div className="text-center pt-10 pb-8">
                     <label className="block mb-2 text-gray-700 text-4xl">
                         <strong className="font-sans">BABA </strong>scheduling
@@ -27,6 +31,9 @@ const LoginPage = () => {
                     <h1 className="text-lg font-medium mb-4 text-center">
                         Login
                     </h1>
+                    <div id="usernameSeterror" className="text-red-500">
+                        {error && <span className="error">{error}</span>}
+                    </div>
                     <div className="mb-4">
                         <label className="block font-medium mb-2 text-gray-700">
                             Email
@@ -53,9 +60,20 @@ const LoginPage = () => {
                             className="w-full border border-gray-400 p-2 rounded-lg shadow-md"
                         />
                     </div>
+                    {!isFormValid && (
+                        <p className="text-red-400 mt-5 mb-2 text-center">
+                            Please fill in both fields before submitting.
+                        </p>
+                    )}
                     <button
                         type="submit"
-                        className="bg-indigo-500 text-white py-2 px-4 hover:bg-indigo-800 rounded-xl w-full self-center"
+                        disabled={!isFormValid}
+                        className={`text-white py-2 px-4 rounded-xl w-full self-center 
+                            ${
+                                isFormValid
+                                    ? 'bg-indigo-500 hover:bg-indigo-700'
+                                    : 'bg-indigo-200 cursor-not-allowed'
+                            }`}
                     >
                         Sign in
                     </button>

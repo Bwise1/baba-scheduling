@@ -6,7 +6,11 @@ module.exports = {
         './components/**/*.{ts,tsx}',
     ],
     theme: {
-        extend: {},
+        extend: {
+            backgroundImage: {
+                hero: '../public/images/background.jpg',
+            },
+        },
     },
     plugins: [],
 };
