@@ -10,6 +10,7 @@ var error = '';
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const isFormValid = email && password;
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -59,9 +60,20 @@ const LoginPage = () => {
                             className="w-full border border-gray-400 p-2 rounded-lg shadow-md"
                         />
                     </div>
+                    {!isFormValid && (
+                        <p className="text-red-400 mt-5 mb-2 text-center">
+                            Please fill in both fields before submitting.
+                        </p>
+                    )}
                     <button
                         type="submit"
-                        className="bg-indigo-500 text-white py-2 px-4 hover:bg-indigo-800 rounded-xl w-full self-center"
+                        disabled={!isFormValid}
+                        className={`text-white py-2 px-4 rounded-xl w-full self-center 
+                            ${
+                                isFormValid
+                                    ? 'bg-indigo-500 hover:bg-indigo-700'
+                                    : 'bg-indigo-200 cursor-not-allowed'
+                            }`}
                     >
                         Sign in
                     </button>

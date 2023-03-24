@@ -137,6 +137,8 @@ const SignupPage = () => {
             // Submit the form
             console.log(formState);
             console.log('well done !');
+            const submitPageUrl = window.location.href;
+            window.open(submitPageUrl, '_blank');
         } else {
         }
     }
@@ -281,7 +283,7 @@ const SignupPage = () => {
                                 alt="Google Logo"
                                 className="w-8 h-8 ml-32"
                             />
-                            <Link href="" className="mt-1 ml-2">
+                            <Link href="step1page" className="mt-1 ml-2">
                                 Sign up with Google
                             </Link>
                         </div>
