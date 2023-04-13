@@ -13,7 +13,6 @@ import { Console } from 'console';
 import eyes from '../images/eyes.png';
 import noeyes from '../images/noeyes.png';
 //import pic from '../images/back.jpg'
-
 const inter = Inter({ subsets: ['latin'] });
 
 interface FormState {
