@@ -118,7 +118,7 @@ const Step1page = () => {
                                     </div>
 
                                     {!isFormValid && (
-                                        <p className="text-red-400 mt-5 mb-2 text-center">
+                                        <p className="text-red-400 mt-5 text-center">
                                             Please fill in both fields before
                                             submitting.
                                         </p>
@@ -126,7 +126,7 @@ const Step1page = () => {
                                     <button
                                         type="submit"
                                         disabled={!isFormValid}
-                                        className={`text-white py-2 px-4 rounded-xl w-full self-center 
+                                        className={`text-white py-2 px-4 rounded-xl w-full mt-2 self-center 
                             ${
                                 isFormValid
                                     ? 'bg-indigo-500 hover:bg-indigo-700'
