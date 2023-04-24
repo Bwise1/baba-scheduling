@@ -13,7 +13,6 @@ import { Console } from 'console';
 import eyes from '../images/eyes.png';
 import noeyes from '../images/noeyes.png';
 //import pic from '../images/back.jpg'
-
 const inter = Inter({ subsets: ['latin'] });
 
 interface FormState {
@@ -112,6 +111,7 @@ const SignupPage = () => {
 
         return errors;
     }
+    
 
     function validateForm(formState: FormState) {
         const errors = {
@@ -134,19 +134,22 @@ const SignupPage = () => {
             formState.errors.username == '' &&
             formState.errors.passwordSec == ''
         ) {
+            
             // Submit the form
             console.log(formState);
             console.log('well done !');
             const submitPageUrl = window.location.href;
             window.open(submitPageUrl, '_blank');
+        
         } else {
         }
     }
+    
 
     return (
         <form
             onSubmit={handleSubmit}
-            className="flex bg-[url('/src/app/images/back.jpg')]"
+            className="flex"
         >
             <div className="text-left">
                 <div className=" h-4/6 m-auto p-6 flex-auto w-3/4 ml-24">
