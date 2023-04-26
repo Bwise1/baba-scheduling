@@ -10,8 +10,8 @@ import express from "express";
 import { checkToken } from "../../auth/token_validation.js";
 const router = express.Router();
 
-router.post("/", checkToken, createUser);
-router.get("/", checkToken, getAllUsers);
+router.post("/", createUser);
+router.get("/", getAllUsers);
 router.get("/:id", checkToken, getUserByUserId);
 router.patch("/:id", checkToken, updateUserById);
 router.delete("/:id", checkToken, deleteUserById);
