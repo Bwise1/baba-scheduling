@@ -13,7 +13,7 @@ export function create(data, callback) {
 }
 
 export function getUsers(callback) {
-  const query = `SELECT id,firstName,lastName, gender, email,password,number from Users`;
+  const query = `SELECT id,userName,fullName, gender, email,password,number,timeZone from Users`;
   db.query(query, (error, results) => {
     if (error) {
       return callback(error);
