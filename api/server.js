@@ -1,20 +1,20 @@
-import dotenv from "dotenv"
+import dotenv from "dotenv";
 import express from "express";
-import pkg from 'body-parser';
+import pkg from "body-parser";
 
 const app = express();
-import userRouter from './api/users/user.router.js';
+import userRouter from "./api/users/user.router.js";
 
-dotenv.config()
-const PORT=4000
+dotenv.config();
+const PORT = 4000;
 
-app.use(pkg.json())
-app.use(pkg.urlencoded({extended:true}))
-app.use('/api/users',userRouter)
+app.use(pkg.json());
+app.use(pkg.urlencoded({ extended: true }));
+app.use("/api/v1/user", userRouter);
 
-app.listen(process.env.PORT,()=>{
-    console.log("Server Up and Working:", process.env.PORT)
-})
+app.listen(process.env.PORT, () => {
+  console.log("Server Up and Working:", process.env.PORT);
+});
 
 /*import express from "express";
 import { createConnection } from "mysql";
