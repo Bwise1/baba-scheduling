@@ -108,11 +108,11 @@ const Step1page = () => {
                                         <TimezoneSelect
                                             className="border-gray-200 hover:border-indigo-600"
                                             value={selectedTimezone}
-                                            // onChange={(timezone) =>
-                                            // setSelectedTimezone(
-                                            // timezone.value,
-                                            //  )
-                                            //  }
+                                            onChange={(timezone) =>
+                                                setSelectedTimezone(
+                                                    timezone.value,
+                                                )
+                                            }
                                         />
                                     </div>
 
@@ -131,21 +131,10 @@ const Step1page = () => {
                                         )}
                                     </div>
 
-                                    {!isFormValid && (
-                                        <p className="text-red-400 mt-5 text-center">
-                                            Please fill in both fields before
-                                            submitting.
-                                        </p>
-                                    )}
                                     <button
                                         type="submit"
-                                        disabled={!isFormValid}
-                                        className={`text-white py-2 px-4 rounded-xl w-full self-center 
-                            ${
-                                isFormValid
-                                    ? 'bg-indigo-500 hover:bg-indigo-700'
-                                    : 'bg-indigo-200 cursor-not-allowed'
-                            }`}
+                                        //disabled={!isFormValid}
+                                        className={`text-white py-2 px-4 rounded-xl w-full self-center bg-indigo-500 hover:bg-indigo-700`}
                                     >
                                         Next Step
                                     </button>
@@ -163,6 +152,13 @@ const Step1page = () => {
 export default Step1page;
 {
     /**
+     
+     {!isFormValid && (
+                                        <p className="text-red-400 mt-5 text-center">
+                                            Please fill in both fields before
+                                            submitting.
+                                        </p>
+                                    )}
  ${
                                 isFormValid
                                     ? 'bg-indigo-500 hover:bg-indigo-700'
