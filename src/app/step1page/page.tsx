@@ -9,6 +9,7 @@ import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import moment from 'moment';
 import 'moment-timezone';
+import axios from 'axios';
 import { type } from 'os';
 
 type Inputs = {
@@ -21,10 +22,15 @@ const Step1page = () => {
         return moment().tz(timezone).format('h:mm:ss a');
     }
     const { register, handleSubmit } = useForm<Inputs>();
-    const onSubmit = (data: any) => {
-        let time = getTimeInTimezone(selectedTimezone);
-        data = { ...data, selectedTimezone, time };
-        console.log(data);
+    const onSubmit = async (data: any) => {
+        try {
+            let time = getTimeInTimezone(selectedTimezone);
+            data = { ...data, selectedTimezone, time };
+            const res = await axios.post('/api/v1/user/step1page', data);
+            console.log(res);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     const now = new Date();
