@@ -26,7 +26,10 @@ const Step1page = () => {
         try {
             let time = getTimeInTimezone(selectedTimezone);
             data = { ...data, selectedTimezone, time };
-            const res = await axios.post('/api/v1/user/step1page', data);
+            const res = await axios.post(
+                'https://cors.iamnd.eu.org/?url=https://babascheduling.onrender.com/api/v1/user/step1page',
+                data,
+            );
             console.log(res);
         } catch (error) {
             console.log(error);
