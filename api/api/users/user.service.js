@@ -1,9 +1,16 @@
 import db from "../../config/db.js";
 
 export function create(data, callback) {
-  const { userName, fullName, gender, email, password, number, timeZone } =
-    data;
-  const query = `INSERT INTO Users(userName,fullName, gender, email,password,number,timeZone) VALUES('${userName}','${fullName}','${gender}','${email}','${password}','${number}','${timeZone}'); `;
+  const {
+    userName,
+    fullName,
+    gender,
+    email,
+    password,
+    number,
+    selectedTimezone,
+  } = data;
+  const query = `INSERT INTO Users(userName,fullName, gender, email,password,number,timeZone) VALUES('${userName}','${fullName}','${gender}','${email}','${password}','${number}','${selectedTimezone}'); `;
   db.query(query, (error, results) => {
     if (error) {
       return callback(error);
