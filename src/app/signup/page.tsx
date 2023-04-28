@@ -275,7 +275,7 @@ const SignupPage = () => {
                             type="submit"
                             className="bg-indigo-500 text-white py-2 px-4 hover:bg-indigo-800 rounded-xl w-full self-center mt-4"
                         >
-                            Sign up for free
+                           <Link href="step1page" className="mt-1 ml-2">Sign up for free </Link>
                         </button>
                         <label className="block font-medium mb-2 text-gray-700 pt-4 text-center">
                             ------------------- OR -------------------
@@ -286,7 +286,7 @@ const SignupPage = () => {
                                 alt="Google Logo"
                                 className="w-8 h-8 ml-32"
                             />
-                            <Link href="step1page" className="mt-1 ml-2">
+                            <Link href="" className="mt-1 ml-2">
                                 Sign up with Google
                             </Link>
                         </div>
