@@ -145,7 +145,7 @@ const Step1page = () => {
                                         //disabled={!isFormValid}
                                         className={`text-white py-2 px-4 rounded-xl w-full self-center bg-indigo-500 hover:bg-indigo-700`}
                                     >
-                                        <Link href="/step2page">Next Step </Link>
+                                        <Link href="step2page">Next Step </Link>
                                     </button>
                                 </div>
                             </div>
