@@ -86,9 +86,9 @@ const SignupPage = () => {
                 formState.password = value;
                 if (!value) {
                     formState.errors.password = 'Please enter a password !';
-                } else if (value.length < 7) {
+                } else if (value.length < 6) {
                     formState.errors.password =
-                        'Please enter a password with at least 7 characters';
+                        'Please enter a password with at least 6 characters';
                 } else if (!containsNonAlphabetic) {
                     formState.errors.password =
                         'password must contain at least one non alphabet character !';
@@ -144,6 +144,8 @@ const SignupPage = () => {
         } else {
         }
     }
+    const isFormValid=!formState.errors.email && !formState.errors.password && !formState.errors.passwordSec && !formState.errors.username
+
     
 
     return (
@@ -273,9 +275,11 @@ const SignupPage = () => {
                         </div>
                         <button
                             type="submit"
-                            className="bg-indigo-500 text-white py-2 px-4 hover:bg-indigo-800 rounded-xl w-full self-center mt-4"
+                            disabled={!isFormValid}
+                            className={`text-white py-2 px-4 rounded-xl w-full self-center mt-4
+                            ${ isFormValid ? 'bg-indigo-500 hover:bg-indigo-700' : 'bg-indigo-200 cursor-not-allowed mt-4'}`}
                         >
-                            Sign up for free
+                           <Link href="step1page" className="mt-1 ml-2">Sign up for free </Link>
                         </button>
                         <label className="block font-medium mb-2 text-gray-700 pt-4 text-center">
                             ------------------- OR -------------------
@@ -286,7 +290,7 @@ const SignupPage = () => {
                                 alt="Google Logo"
                                 className="w-8 h-8 ml-32"
                             />
-                            <Link href="step1page" className="mt-1 ml-2">
+                            <Link href="" className="mt-1 ml-2">
                                 Sign up with Google
                             </Link>
                         </div>
