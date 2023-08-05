@@ -25,7 +25,7 @@ const Step2page = () => {
                                 setup. You will be able to edit this later.
                             </div>
                             <div className="pl-12 pt-5">
-                                Step 2 of 4
+                                Step 2 of 4, Connect your calendar
                                 <div className="flex mt-2">
                                     <div className="h-2 bg-gray-600 w-20"></div>
                                     <div className="h-2 bg-gray-600 w-20 pl-3 ml-2"></div>
